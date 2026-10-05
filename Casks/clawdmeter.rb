@@ -1,6 +1,6 @@
 cask "clawdmeter" do
-  version "0.4.0"
-  sha256 "25e5d041384e3c766695863d5751e1811b04ee36aecc528ac3db8c0202e207f8"
+  version "0.5.0"
+  sha256 "8e4669f02a6c700bcd95527a05ca39efa6da38d074ce975d15c8c63bdab8938d"
 
   url "https://github.com/tangheng05/clawdmeter/releases/download/v#{version}/Clawdmeter.zip"
   name "Clawdmeter"
