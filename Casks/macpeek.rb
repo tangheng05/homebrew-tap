@@ -1,6 +1,6 @@
 cask "macpeek" do
-  version "0.1.0"
-  sha256 "b8be18b9388444e67b5f71c11c74843b18077e71afd4603496d21cc5eeccddb4"
+  version "0.2.0"
+  sha256 "6f8db801e167881c23492867f241f379ec0accc965347110239ff057e6c1ff9a"
 
   url "https://github.com/tangheng05/macpeek/releases/download/v#{version}/Macpeek.zip"
   name "Macpeek"
