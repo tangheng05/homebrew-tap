@@ -1,6 +1,6 @@
 cask "clippeek" do
   version "0.3.0"
-  sha256 "b40c523a0b57a992a0934e9fd2c4112b5a0b4ca575bc0f9c8352b4693c18b055"
+  sha256 "eb5f59cbafda98ba735fae7ce8f591d2f0704ef9d5b22e64ff2bd25f2a26e0c5"
 
   url "https://github.com/tangheng05/clippeek/releases/download/v#{version}/Clippeek.zip"
   name "clippeek"
