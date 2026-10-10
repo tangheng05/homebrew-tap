@@ -1,6 +1,6 @@
 cask "clippeek" do
   version "0.3.0"
-  sha256 "c57a9b7569255e640846f0499a6a1f8ff3419446bfb80c8af39f351c00b671c7"
+  sha256 "4ab5504c714aaa44598d85f0d9eaaa38b388f5dda30bd8280fd307f8eae0479a"
 
   url "https://github.com/tangheng05/clippeek/releases/download/v#{version}/Clippeek.zip"
   name "clippeek"
@@ -10,6 +10,7 @@ cask "clippeek" do
   depends_on macos: :tahoe
 
   app "Clippeek.app"
+  binary "#{appdir}/Clippeek.app/Contents/MacOS/ClippeekApp", target: "clippeek"
 
   # The app isn't notarized; this skips the "Open Anyway" step.
   postflight_steps do
