@@ -1,6 +1,6 @@
 cask "clippeek" do
   version "0.3.0"
-  sha256 "12fe24f9ca73f59fdd281b900aaca10acf13e13e55bac8203ecf091167c5f538"
+  sha256 "c57a9b7569255e640846f0499a6a1f8ff3419446bfb80c8af39f351c00b671c7"
 
   url "https://github.com/tangheng05/clippeek/releases/download/v#{version}/Clippeek.zip"
   name "clippeek"
@@ -18,10 +18,6 @@ cask "clippeek" do
         must_succeed:   false,
         writable_paths: ["Clippeek.app"],
         writable_base:  :appdir
-    # The uninstall script runs on upgrade too, so reopening puts capture back on the inbox.
-    run "/usr/bin/open",
-        args:         ["-g", "/Applications/Clippeek.app"],
-        must_succeed: false
   end
 
   # Puts the user's screenshot settings back; skipped if the app is already gone.
