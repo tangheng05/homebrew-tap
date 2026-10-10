@@ -1,6 +1,6 @@
 cask "clippeek" do
-  version "0.2.1"
-  sha256 "85ef25cb4617fc90458904c85d591054bfb1a9bd20018b387ab8ff5484be8a9e"
+  version "0.3.0"
+  sha256 "12fe24f9ca73f59fdd281b900aaca10acf13e13e55bac8203ecf091167c5f538"
 
   url "https://github.com/tangheng05/clippeek/releases/download/v#{version}/Clippeek.zip"
   name "clippeek"
@@ -18,9 +18,20 @@ cask "clippeek" do
         must_succeed:   false,
         writable_paths: ["Clippeek.app"],
         writable_base:  :appdir
+    # The uninstall script runs on upgrade too, so reopening puts capture back on the inbox.
+    run "/usr/bin/open",
+        args:         ["-g", "/Applications/Clippeek.app"],
+        must_succeed: false
   end
 
-  uninstall quit: "io.github.tangheng05.clippeek"
+  # Puts the user's screenshot settings back; skipped if the app is already gone.
+  uninstall quit:   "io.github.tangheng05.clippeek",
+            script: {
+              executable:   "/bin/sh",
+              args:         ["-c", '[ ! -x "$0" ] || "$0" --restore-capture',
+                             "#{appdir}/Clippeek.app/Contents/MacOS/ClippeekApp"],
+              must_succeed: false,
+            }
 
   zap trash: [
     "~/Library/Application Support/clippeek",
@@ -28,7 +39,7 @@ cask "clippeek" do
   ]
 
   caveats <<~EOS
-    Before uninstalling, turn off "Send screenshots" and "Send screen recordings" in clippeek
-    so your previous screenshot settings are restored.
+    If you remove Clippeek.app without Homebrew, turn off "Send screenshots" and
+    "Send screen recordings" in clippeek first so your previous screenshot settings come back.
   EOS
 end
